@@ -1,0 +1,25 @@
+server {
+    server_name domain.tld;
+    root /var/www/your-site.com;
+
+
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_intercept_errors on;
+        fastcgi_pass php-7.3:9000;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+        expires max;
+        log_not_found off;
+    }
+
+    error_log /var/log/nginx/your-site.com_error.log;
+    access_log /var/log/nginx/your-site.com_access.log;
+}
