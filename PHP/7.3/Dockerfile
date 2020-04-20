@@ -12,8 +12,9 @@ RUN apt-get update && apt-get install -y \
 RUN pecl install imagick && \
     docker-php-ext-enable imagick
 
-# Install PDO MySql
-RUN docker-php-ext-install pdo_mysql
+# Install PDO MySql and mysqli
+RUN docker-php-ext-install pdo_mysql && \
+    docker-php-ext-install mysqli
 
 # Install intl extension
 RUN docker-php-ext-configure intl && \

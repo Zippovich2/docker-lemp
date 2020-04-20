@@ -70,7 +70,7 @@
         -v `pwd`/data/composer-cache:/home/php-user/composer-cache:delegated \
         --name webserver-php-7.3 \
         --net webserver-network \
-        seobar/php-fpm:latest
+        php-fpm:7.3
    
     # Add "--env-file `pwd`/data/env_files/php-local.env \" if you need pass env vars
     

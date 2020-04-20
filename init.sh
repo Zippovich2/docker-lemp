@@ -132,7 +132,7 @@ docker run -d \
     -v "$WEBSERVER_PATH/data/composer-cache:/home/php-user/composer-cache:delegated" \
     --name webserver-php-7.3 \
     --net webserver-network \
-    seobar/php-fpm:latest
+    php-fpm:7.3
 
 docker run -d \
     -v "$WEBSERVER_PATH/www:/var/www:cached" \
